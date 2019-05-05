@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>tes drive</title>
+</head>
+<body>
+    <style
+    .btn {
+        widht : 100px; height : 30px 
+    }></style>
+    <p>Masukkan angka 1 : <input type="number" name="" id="angka1"></p>
+    <p>Masukkan angka 2 : <input type="number" name="" id="angka2"></p>
+
+
+<p><button type="button" id="tambah" style="width:75px;" onclick="tambah()">tambah</button></p>
+<p><button type="button" id="kali" style="width:75px;" onclick="kali()">kali</button></p>
+<p><button type="button" id="kurang" style="width:75px;" onclick="kurang()">kurang</button> </p>
+<p><button type="button" id="bagi" style="width:75px;" onclick="bagi()">bagi</button></p>
+<p><button type="button" id="modulus" style="width:75px;" onclick="modulus()">modulus</button></p>
+
+<p>print?</p>
+<p><input type="checkbox" name="print console" id="print_console">print console</p>
+<p><input type="checkbox" name="print halaman" id="print_depan">print dibawah</p>
+
+<p id="disini">Hasil</p>
+
+<script>
+
+var print = () =>{
+
+}
+var tambah = () =>{
+    var angka1 = parseInt(document.getElementById("angka1").value)
+
+    var angka2 = parseInt(document.getElementById("angka2").value)
+    var hasil = (angka1 + angka2)
+    var hasiltambah = document.getElementById('disini')
+    var checkBox = document.getElementById("print_console");
+    var checkBox2 = document.getElementById("print_depan")
+   
+   
+   if (checkBox.checked == true){
+        console.log(hasiltambah);
+   }
+   if(checkBox2.checked == true){
+    hasiltambah.innerHTML = `${angka1} ditambah ${angka2} adalah ${hasil}`
+   }
+    
+}
+var kurang = () =>{
+    var angka1 = parseInt(document.getElementById("angka1").value)
+
+    var angka2 = parseInt(document.getElementById("angka2").value)
+    var hasil = (angka1 - angka2)
+    var hasiltambah = document.getElementById('disini')
+    var checkBox = document.getElementById("print_console");
+    var checkBox2 = document.getElementById("print_depan")
+   
+   
+   if (checkBox.checked == true){
+        console.log(hasiltambah);
+   }
+   if(checkBox2.checked == true){
+    hasiltambah.innerHTML = `${angka1} ditambah ${angka2} adalah ${hasil}`
+   }
+    
+}
+var bagi = () =>{
+    var angka1 = parseInt(document.getElementById("angka1").value)
+
+    var angka2 = parseInt(document.getElementById("angka2").value)
+    var hasil = (angka1 / angka2)
+    var hasiltambah = document.getElementById('disini')
+    var checkBox = document.getElementById("print_console");
+    var checkBox2 = document.getElementById("print_depan")
+   
+   
+   if (checkBox.checked == true){
+        console.log(hasiltambah);
+   }
+   if(checkBox2.checked == true){
+    hasiltambah.innerHTML = `${angka1} ditambah ${angka2} adalah ${hasil}`
+   }
+}
+var kali = () =>{
+    var angka1 = parseInt(document.getElementById("angka1").value)
+
+    var angka2 = parseInt(document.getElementById("angka2").value)
+    var hasil = (angka1 * angka2)
+    var hasiltambah = document.getElementById('disini')
+    var checkBox = document.getElementById("print_console");
+    var checkBox2 = document.getElementById("print_depan")
+   
+   
+   if (checkBox.checked == true){
+        console.log(hasiltambah);
+   }
+   if(checkBox2.checked == true){
+    hasiltambah.innerHTML = `${angka1} ditambah ${angka2} adalah ${hasil}`
+   }
+}
+var modulus = () =>{
+    var angka1 = parseInt(document.getElementById("angka1").value)
+
+    var angka2 = parseInt(document.getElementById("angka2").value)
+    var hasil = (angka1 % angka2)
+    var hasiltambah = document.getElementById('disini')
+    var checkBox = document.getElementById("print_console");
+    var checkBox2 = document.getElementById("print_depan")
+   
+   
+   if (checkBox.checked == true){
+        console.log(hasiltambah);
+   }
+   if(checkBox2.checked == true){
+    hasiltambah.innerHTML = `${angka1} ditambah ${angka2} adalah ${hasil}`
+   }
+}
+
+</script> 
+
+</body>
+</html>
