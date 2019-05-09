@@ -23,14 +23,14 @@
 </head>
 
 <body>
+    <p id='test'></p>
     <form >
         <fieldset>
             <legend>Filter</legend>
-            <p>Nama: <input type="text" id="search" oninput="fn2()"></p>
-            <p>Umur: <input type="number" name="num1" id="num1" onkeyup="fn3()"> - <input type="number" name="num2" id="num2"
-                    onkeyup="fn3()"></p>
+            <p>Nama: <input type="text" id="search" onchange="funFilterName()"></p>
+            <p>Umur: <input type="number" name="num1" id="num1" onchange="fn3()"> - <input type="number" name="num2" id="num2"
+                    onchange="fn3()"></p>
             <p>Pekerjaan: <select name="job" id="job">
-                <option></option>
                 </select>
             </p>
             <p><input type="button" value="Search Job" onclick="fn4()"></p>
@@ -41,9 +41,9 @@
             <table>
                 <td><input type="text" name="nama" id="nama"></td>
                 <td><input type="number" name="nama" id="umur"></td>
-                <td><input type="text" name="nama" id="jobT"></td>
+                <td><input type="text" name="nama" id="jobInput"></td>
             </table>
-            <p><input type="button" value="Submit" onclick="fn1()"></p>
+            <p><input type="button" value="Submit" onclick="funInputData()"></p>
         </fieldset>
         <fieldset>
             <legend>Tabel Data</legend>
