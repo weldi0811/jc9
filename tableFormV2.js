@@ -1,78 +1,155 @@
-    arrjob = ['dev','Digital Marketing','Sales', 'Lawyer', 'Adventurer']
-    arrform = [
-    {nama: 'alex', umur : 22, jobT:'dev'},
-    {nama: 'beatrix', umur : 24, jobT:'Digital Marketing'},
-    {nama: 'Chloe', umur : 21, jobT:'dev'},
-    {nama: 'Dave', umur : 26, jobT:'Sales'},
-    {nama: 'Eri', umur : 29, jobT:'Lawyer'},
-    {nama: 'Frodo', umur : 35, jobT:'Adventurer'}
-]
-var fn1 = () =>{
-var name = document.getElementById('nama').value
-var age = document.getElementById('umur').value
-var job = document.getElementById('jobT').value
+   let arrManusia = [
+    {nama: 'Alex', umur: 22, job: 'Dev'},  // ALVIN -> alvin (/toLowerCase()) 
+    {nama: 'Alicia', umur: 32, job: 'Dev'},
+    {nama: 'Alona', umur: 26, job: 'Dev'},
+    {nama: 'Batios', umur: 33, job: 'CEO'},
+    {nama: 'Bakhti', umur: 38, job: 'PM'},
+    {nama: 'Charlee', umur: 27, job: 'CTO'}
+];
 
-arrform.push({
-    nama : name,
-    umur : age,
-    jobT : job
-})
-arrjob.push(job)
+let arrJob = [
+    'All' ,'Dev', 'CEO', 'PM', 'CTO'
+];
 
-    //cuma ngetes buat do log
-var iterator = arrform.values()
-for(let elements of iterator){
-    console.log(elements); 
-}
-var iterator2 = arrjob.values()
-for(let elements2 of iterator2){
-    console.log(elements2);
-   
-}
+// [tr, tr, tr, tr, tr, tr]
+// Merender list data ke tabel
+var funShow = () => {
+    var listManusia = arrManusia.map((val) => { // val = {name, age,  job}
+        return `<tr>
+        <td>${val.nama}</td>
+        <td>${val.umur}</td>
+        <td>${val.job}</td>
+        </tr>`
+    })
 
+    var listJob = arrJob.map(val => { // val = string seperti 'All', 'Dev', 'CEO'
+        return `<option>${val}</option>`
+    })
 
-show(arrform,'here')
-
+    document.getElementById('here').innerHTML = listManusia.join('')
+    document.getElementById('job').innerHTML = listJob.join('')
 
 }
-var show = (arrei, target) =>{
-    var list = ''
-    for(var i = 0; i < arrei.length; i++){
-        list += `
-        <tr>
-            <td>${arrei[i].nama}</td>
-            <td>${arrei[i].umur}</td>
-            <td>${arrei[i].jobT}</td>
-        </tr>
-        `
-    }   
-    document.getElementById(`${target}`).innerHTML = list;
 
-    let x = (arrjob) => arrjob.filter((v,i) => arrjob.indexOf(v) === i)
+// Input Data
+var funInputData = () => {
+    var NAMA = document.getElementById('nama').value
+    var UMUR = document.getElementById('umur').value
+    var JOB = document.getElementById('jobInput').value
+
+    arrManusia.push({
+        nama: NAMA,
+        umur: UMUR,
+        job: JOB
+    })
+
+    if(arrJob.includes(JOB) == false){
+        arrJob.push(JOB)
+    }
+
+    funShow()
+
+}
+
+// FILTER NAME
+var funFilterName = () => {
+    var filter = document.getElementById('search').value
+    var test = []
+    var list = []
+
+    for (var i = 0; i < arrManusia.length; i++){
+        var name = arrManusia[i].nama.toLowerCase()
+        var input = filter.toLowerCase()
+        
+        if(name.includes(input)){ // true of false
+            test.push(arrManusia[i])
+        }
+
+    }
+
+    list = test.map(val => {
+        return `<tr>
+        <td>${val.nama}</td>
+        <td>${val.umur}</td>
+        <td>${val.job}</td>
+        </tr>`
+    })
+
+    document.getElementById('here').innerHTML = list.join('')
     
-    var select = document.getElementById("dropdownjob");
-    for(var i = 0; i < arrjob.length; i++) {
-    var opt = arrjob[i];
-    var el = document.createElement("option");
-    el.textContent = opt;
-    el.value = opt;
-    select.appendChild(el);
-}
-    
-}
-
-var fn2 = () =>{
-
 }
 
 var fn3 = () =>{
+    var umur1 = document.getElementById('num1').value
+    var umur2 = document.getElementById('num2').value
+    var testumur = []
+    var testlist = []
+    if(umur1 != null){
+        for(var i = 0; i < arrManusia.length; i++){
+            var usia = parseInt(arrManusia[i].umur)
+            var inputumur1 = parseInt(umur1)
+                if(usia>=inputumur1){
+                    testumur.push(arrManusia[i])
+                } 
+        }
+    }
+    if(umur2 != null){
+        for(var i=0; i< arrManusia.length; i++){
+            var usia=parseInt(arrManusia[i].umur)
+            var inputumur2 = parseInt(umur2)
+                if(usia<=inputumur2){
+                    testumur.push(arrManusia[i])
+                }
+        }
+    }
 
+    if(testumur.includes(usia)){ // true of false
+        testumur.push(arrManusia[i])
+    }
+
+
+
+    testlist = testumur.map(val => {
+        return `<tr>
+        <td>${val.nama}</td>
+        <td>${val.umur}</td>
+        <td>${val.job}</td>
+        </tr>`
+    })
+
+    document.getElementById('here').innerHTML = testlist.join('')
+    console.log(umur1);
+    console.log(umur2);
+    
+    
 }
 
 var fn4 = () =>{
+    var filter = document.getElementById('job').value
+    var test = []
+    var list = []
 
-}
+    for (var i = 0; i < arrManusia.length; i++){
+        var job = arrManusia[i].job.toLowerCase()
+        var input = filter.toLowerCase()
 
-var onLoad = () =>{
+        if(input == 'all'){
+            test.push(arrManusia[i])
+        }
+        
+        if(job.includes(input)){ // true of false
+            test.push(arrManusia[i])
+        }
 
+    }
+
+    list = test.map(val => {
+        return `<tr>
+        <td>${val.nama}</td>
+        <td>${val.umur}</td>
+        <td>${val.job}</td>
+        </tr>`
+    })
+
+    document.getElementById('here').innerHTML = list.join('')
 }
